@@ -34,7 +34,7 @@ echo "$PREFIX Starting the script.."
 echo "$PREFIX Creating Database and associated user.."
 mysql -u root <<_EOF_
 CREATE DATABASE ${dbName};
-CREATE USER IF NOT EXIST '${dbName}'@'localhost' IDENTIFIED BY '${dbPass}'
+CREATE USER '${dbName}'@'localhost' IDENTIFIED BY '${dbPass}'
 GRANT ALL PRIVILEGES ON ${dbName}.* TO '${dbName}'@'localhost';
 FLUSH PRIVILEGES;
 _EOF_
